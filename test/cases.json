@@ -1,0 +1,86 @@
+{
+ "tests": [
+  {
+   "in": {
+    "domain": "contoso.com",
+    "sel": "s2048"
+   },
+   "dns": {
+    "s2048._domainkey.contoso.com|TXT": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "TXT",
+       "TTL": 1,
+       "data": "\"v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArT1zaEAh3Ui4IiuHtEidYvn6b+iZka3l7bCo8pttEiOqI7YU8IxjqoB7FXJcYZe5jHpGrQcuqIMFB1ywFUUd5pKoc5P8mevrRO59Yj51rJWRDsDV0rlUNgsDYZoGoFkygxPzXzML43tc7t3yN4PJDjbd1UFF/+JSKwLLRdWrNiWMntqf4T+mJjxA5q3NFtiSGYxv528mfJUYsldB+d7HGnMKibJUFJkywVvgpr8BM/Inc2GcJ38/rKPoyTjXvHnjlrEcWUVcUvvB9NZuyXMn6y2x/xgk/4X8fj83qWDrJvHk55WaOwCiFmbjRbSaKeM6cuRw0AZzq5ZdKD/hiYh39wIDAQAB\""
+      }
+     ]
+    }
+   },
+   "v": {
+    "status": "ok",
+    "bits": 2048,
+    "revoked": false
+   }
+  },
+  {
+   "in": {
+    "domain": "contoso.com",
+    "sel": "old"
+   },
+   "dns": {
+    "old._domainkey.contoso.com|TXT": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "TXT",
+       "TTL": 1,
+       "data": "\"v=DKIM1; p=\""
+      }
+     ]
+    }
+   },
+   "v": {
+    "revoked": true
+   }
+  },
+  {
+   "in": {
+    "domain": "contoso.com",
+    "sel": "s1024"
+   },
+   "dns": {
+    "s1024._domainkey.contoso.com|TXT": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "TXT",
+       "TTL": 1,
+       "data": "\"v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQConWDd2GqBMDjI1gs3LrrxTk3r5Ekgeib0+dLj4U8ttI9GtdyHlvE8AZpZ1G5RpeKnMQKqcXLiEXhKs7kNE6APw3vsVM8B6msSRBpj5UVbBdokox5IR0iFTnKhboSI2iLxWwrAN9M4aMUQ3bJeJo0QOCSgqo0L9gL5RIQjoeQhdQIDAQAB\""
+      }
+     ]
+    }
+   },
+   "v": {
+    "bits": 1024
+   }
+  },
+  {
+   "in": {
+    "domain": "contoso.com",
+    "sel": "yok"
+   },
+   "dns": {},
+   "v": {
+    "status": "nxdomain"
+   }
+  },
+  {
+   "in": {
+    "domain": "contoso.com",
+    "sel": "a b"
+   },
+   "err": "sel"
+  }
+ ]
+}
